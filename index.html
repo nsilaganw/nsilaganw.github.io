@@ -389,13 +389,29 @@
             position: relative;
         }
 
+        /* Full view clear by default */
         .media-window-blur img {
-            filter: blur(10px);
-            opacity: 0.5;
             position: absolute;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+            filter: blur(0px);
+            opacity: 1;
+            z-index: 1;
+        }
+
+        /* Turns blurry when hovering the card container window */
+        .media-window-blur:hover img {
+            filter: blur(10px);
+            opacity: 0.6;
+        }
+
+        /* Keeps button context explicitly above image layout layer */
+        .media-window-blur .btn-outline {
+            background: #ffffff;
+            position: relative;
+            z-index: 2;
         }
 
         .seminar-row {
@@ -634,7 +650,7 @@
                     <div class="media-window">
                         <div class="media-window-blur">
                             <img src="IMG_20260623_221846_178.jpg" alt="Incubation Group Frame Background Blur">
-                            <a href="BusinessIncubationFinalReport.pdf" target="_blank" class="btn-outline" style="background: #ffffff; position: relative; z-index: 2;">Final report</a>
+                            <a href="BusinessIncubationFinalReport.pdf" target="_blank" class="btn-outline">Final report</a>
                         </div>
                     </div>
                 </div>
@@ -653,7 +669,7 @@
                         <a href="https://www.facebook.com/share/1D25LTZc7e/" target="_blank">View post ↗</a>
                     </div>
                     <div class="media-window" style="height: auto; max-height: 450px;">
-                        <img src="Screenshot 2026-06-23 223110.png" alt="The New Horizon Facebook Post Layout" style="object-fit: contain; background: #fff;">
+                        <img src="fbpreview.png" alt="The New Horizon Facebook Post Layout" style="object-fit: contain; background: #fff;">
                     </div>
                 </div>
             </div>
