@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Niña Felize Anne Ilagan</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Inter', sans-serif;
+            --color-bg: #ffffff;
+            --color-text-main: #1a1a1a;
+            --color-text-muted: #595959;
+            --color-accent-brown: #b37d4e;
+            --color-tag-bg: #fafafa;
+            --color-tag-border: #e6e6e6;
+            --color-dark-teal: #23424a;
+            --color-border-light: #eeeeee;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-text-main);
+            background-color: var(--color-bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid var(--color-border-light);
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 20px;
+            text-decoration: none;
+            color: var(--color-text-main);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-text-muted);
+            font-size: 14px;
+            margin-left: 20px;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--color-text-main);
+        }
+
+        /* Standardized Section Constraints */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--color-border-light);
+        }
+
+        .section-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-accent-brown);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        h2.section-title {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 28px;
+        }
+
+        /* Profile/Hero Area */
+        .hero {
+            padding-top: 80px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--color-text-main);
+        }
+
+        .hero .subtitle {
+            font-size: 18px;
+            color: #3182ce;
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 24px;
+            font-size: 15px;
+            color: var(--color-text-muted);
+            margin-bottom: 48px;
+        }
+
+        .contact-info a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .summary-text {
+            font-size: 16px;
+            color: #333333;
+            max-width: 850px;
+            margin-bottom: 28px;
+        }
+
+        /* Clean Interaction Elements */
+        .btn-outline {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid var(--color-dark-teal);
+            color: var(--color-dark-teal);
+            background: transparent;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: #f0f5f6;
+        }
+
+        /* Skill Architecture Layout */
+        .skill-group {
+            margin-bottom: 24px;
+        }
+
+        .skill-group-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-dark-teal);
+            margin-bottom: 12px;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: var(--color-tag-bg);
+            border: 1px solid var(--color-tag-border);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13.5px;
+            color: #4a4a4a;
+        }
+
+        /* Split Multi-Column Grid Architecture */
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+        }
+
+        .lang-tag {
+            background: var(--color-dark-teal);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .edu-degree {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-text-main);
+            margin-bottom: 6px;
+        }
+
+        .edu-school {
+            color: var(--color-text-muted);
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .edu-grad {
+            color: var(--color-text-muted);
+            font-size: 15px;
+        }
+
+        /* Academic Validation Assets Layout */
+        .verification-block {
+            margin-top: 36px;
+        }
+
+        .verification-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            margin-bottom: 16px;
+        }
+
+        .id-grid {
+            display: flex;
+            gap: 16px;
+        }
+
+        .id-card {
+            border: 1px solid var(--color-tag-border);
+            border-radius: 12px;
+            background: white;
+            padding: 12px;
+            max-width: 240px;
+            text-align: center;
+        }
+
+        .id-card img {
+            width: 100%;
+            height: auto;
+            max-height: 150px;
+            object-fit: contain;
+            border-radius: 8px;
+            background-color: #f7f7f7;
+            margin-bottom: 12px;
+        }
+
+        .id-card p {
+            font-size: 11.5px;
+            color: var(--color-text-muted);
+            line-height: 1.4;
+        }
+
+        /* Certified Credentials Grid Layout */
+        .cert-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid var(--color-tag-border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            background: #ffffff;
+        }
+
+        .cert-info-wrap {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cert-icon {
+            width: 48px;
+            height: 48px;
+            background: #fdf6ee;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cert-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: var(--color-accent-brown);
+            stroke-width: 2;
+        }
+
+        .cert-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-text-main);
+            margin-bottom: 4px;
+        }
+
+        .cert-issuer {
+            font-size: 14px;
+            color: var(--color-text-muted);
+        }
+
+        /* Modern Work & Project Card Architecture */
+        .exp-card {
+            border: 1px solid var(--color-tag-border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            background: #ffffff;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .exp-title {
+            font-size: 16px;
+            color: var(--color-text-muted);
+            max-width: 75%;
+            line-height: 1.5;
+        }
+
+        .exp-title strong {
+            color: var(--color-text-main);
+        }
+
+        .exp-time {
+            font-size: 13px;
+            color: var(--color-text-muted);
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .exp-media-preview {
+            border: 1px solid var(--color-tag-border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 12px;
+        }
+
+        .media-top-bar {
+            background: #f5f4f0;
+            padding: 8px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--color-text-muted);
+            border-bottom: 1px solid var(--color-tag-border);
+        }
+
+        .media-top-bar a {
+            color: var(--color-text-main);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .media-window {
+            background: #111111;
+            height: 320px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .media-window img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .media-window-blur {
+            background: #eaeaea;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .media-window-blur img {
+            filter: blur(10px);
+            opacity: 0.5;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Seminars Layout Framework */
+        .seminar-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .seminar-row:last-child {
+            border-bottom: none;
+        }
+
+        .seminar-left h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--color-text-main);
+            margin-bottom: 4px;
+        }
+
+        .seminar-left p {
+            font-size: 13.5px;
+            color: var(--color-text-muted);
+        }
+
+        .seminar-year {
+            font-size: 14px;
+            color: var(--color-accent-brown);
+            font-weight: 500;
+        }
+
+        /* Footer System */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-size: 13px;
+            color: var(--color-text-muted);
+            border-top: 1px solid var(--color-border-light);
+            background: #fafafa;
+        }
+
+        @media (max-width: 768px) {
+            .split-grid { grid-template-columns: 1fr; gap: 32px; }
+            .hero h1 { font-size: 36px; }
+            .exp-header { flex-direction: column; gap: 8px; }
+            .exp-time { text-align: left; }
+            .id-grid { flex-direction: column; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">Portfolio</a>
+            <nav>
+                <a href="#summary">Summary</a>
+                <a href="#cv">CV</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#experience">Experience</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="summary" class="hero">
+        <div class="container">
+            <p class="section-label">Profile</p>
+            <h1>Niña Felize Anne Ilagan</h1>
+            <p class="subtitle">Accountancy & Business Administration Student, University of the Philippines Diliman</p>
+            
+            <div class="contact-info">
+                <span>✉ <a href="mailto:nsilaganw@gmail.com">nsilaganw@gmail.com</a></span>
+                <span>📞 +63 927 825 1915</span>
+            </div>
+
+            <h2 class="section-title">Summary</h2>
+            <p class="summary-text">
+                Detail-oriented Accountancy and Business Administration student with a proven ability to manage and accomplish tasks, developed through systems analysis and design projects, case analysis, and similar coursework. Seeking an opportunity to gain practical experience and contribute efficiently.
+            </p>
+            
+            <div id="cv.pdf">
+                <a href="" target="_blank" class="btn-outline">View CV</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <p class="section-label">Capabilities</p>
+            <h2 class="section-title">Skills</h2>
+
+            <div class="skill-group">
+                <h3 class="skill-group-title">Office & Records</h3>
+                <div class="tag-container">
+                    <span class="tag">Administrative Support</span>
+                    <span class="tag">Data Entry</span>
+                    <span class="tag">Analysis & Management</span>
+                    <span class="tag">Record-Keeping & Reporting</span>
+                    <span class="tag">Basic Bookkeeping</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <h3 class="skill-group-title">Tools & Production</h3>
+                <div class="tag-container">
+                    <span class="tag">Google Workspace</span>
+                    <span class="tag">Excel</span>
+                    <span class="tag">Online Meeting Tools</span>
+                    <span class="tag">Email & Inbox Management</span>
+                    <span class="tag">Copy Editing</span>
+                    <span class="tag">Transcription</span>
+                    <span class="tag">Proofreading</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <h3 class="skill-group-title">Working Style</h3>
+                <div class="tag-container">
+                    <span class="tag">Time Management</span>
+                    <span class="tag">Problem-Solving</span>
+                    <span class="tag">Adaptability</span>
+                    <span class="tag">Communication</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <div class="split-grid">
+                
+                <div>
+                    <p class="section-label">Fluency</p>
+                    <h2 class="section-title">Languages</h2>
+                    <div>
+                        <span class="lang-tag">English</span>
+                        <span class="lang-tag">Filipino</span>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="section-label">Academic Record</p>
+                    <h2 class="section-title">Education</h2>
+                    <div class="edu-degree">BS Business Administration and Accountancy</div>
+                    <div class="edu-school">University of the Philippines — Diliman</div>
+                    <div class="edu-grad">Expected graduation: May 2030</div>
+
+                    <div class="verification-block">
+                        <p class="verification-title">Proof of enrollment — University of the Philippines ID</p>
+                        <div class="id-grid">
+                            <div class="id-card">
+                                <img src="IMG_20260623_221903_014.jpg" alt="UP ID Card Front Face">
+                                <p>Front</p>
+                            </div>
+                            <div class="id-card">
+                                <img src="IMG_20260623_222016_149.jpg" alt="UP ID Card Back Face">
+                                <p>Back (card number, security code, signature & card ID redacted)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <p class="section-label">Verified</p>
+            <h2 class="section-title">Licences & Certifications</h2>
+
+            <div class="cert-card">
+                <div class="cert-info-wrap">
+                    <div class="cert-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11 2 2 4-4"/></svg>
+                    </div>
+                    <div>
+                        <div class="cert-name">Philippine Civil Service Professional Eligibility</div>
+                        <div class="cert-issuer">Issued by the Civil Service Commission</div>
+                    </div>
+                </div>
+                <a href="CSECert.jpg" target="_blank" class="btn-outline">View credential</a>
+            </div>
+
+            <div class="cert-card">
+                <div class="cert-info-wrap">
+                    <div class="cert-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <div>
+                        <div class="cert-name">Careers in Finance</div>
+                        <div class="cert-issuer">Issued by the Corporate Finance Institute</div>
+                    </div>
+                </div>
+                <a href="https://cfiinstitute.com/verify" target="_blank" class="btn-outline">View credential</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <p class="section-label">Work & Activities</p>
+            <h2 class="section-title">Experience</h2>
+
+            <div class="exp-card">
+                <div class="exp-header">
+                    <div class="exp-title">
+                        <strong>Project Developer</strong> — ArtSIMS, an integrated Sales and Inventory Management System for PWDKAI Handcrafted Products
+                    </div>
+                    <div class="exp-time">Mar 2026 – May 2026 · 2 mos</div>
+                </div>
+                <div class="exp-media-preview">
+                    <div class="media-top-bar">
+                        <span>artsims · live preview</span>
+                        <a href="https://nrbataller.github.io/artsims/?fbclid=IwY2xjawSndc5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR7jYITncKjVMph0MqhEzdD9xLrWYyA3bG9VWppWa7jXzXQwbV2KhuZzT2TPRQ_aem_GMkIAdBWlYHYu4hulqpZqQ" target="_blank">Open project ↗</a>
+                    </div>
+                    <div class="media-window">
+                        <img src="artsims.png" alt="ArtSIMS Application Preview Framework">
+                    </div>
+                </div>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-header">
+                    <div class="exp-title">
+                        <strong>Research Head</strong> — Kabuhayan at Pag-asa: Business Incubation Projects for Indigent Families, University of the Philippines Diliman
+                    </div>
+                    <div class="exp-time">Jan 20 – May 18, 2026 · 4 mos</div>
+                </div>
+                <div class="exp-media-preview">
+                    <div class="media-top-bar">
+                        <span>final report</span>
+                    </div>
+                    <div class="media-window">
+                        <div class="media-window-blur">
+                            <img src="IMG_20260623_221846_178.jpg" alt="Incubation Group Frame Background Blur">
+                            <a href="BusinessIncubationFinalReport.pdf" target="_blank" class="btn-outline" style="background: #ffffff; position: relative; z-index: 2;">Final report</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 56px;">
+                <h2 class="section-title" style="font-size: 24px;">Seminars & Workshops</h2>
+                <div>
+                    <div class="seminar-row">
+                        <div class="seminar-left">
+                            <h4>University Business Camp</h4>
+                            <p>University of the Philippines, Diliman, Quezon City, Manila</p>
+                        </div>
+                        <div class="seminar-year">2024</div>
+                    </div>
+                    <div class="seminar-row">
+                        <div class="seminar-left">
+                            <h4>5<sup>th</sup> MIMAROPA Regional IT Congress</h4>
+                            <p>Divine Word College of Calapan, Calapan City, Oriental Mindoro</p>
+                        </div>
+                        <div class="seminar-year">2023</div>
+                    </div>
+                    <div class="seminar-row">
+                        <div class="seminar-left">
+                            <h4>Personal Finance Seminar Workshop</h4>
+                            <p>Divine Word College of Calapan, Calapan City, Oriental Mindoro</p>
+                        </div>
+                        <div class="seminar-year">2023</div>
+                    </div>
+                    <div class="seminar-row">
+                        <div class="seminar-left">
+                            <h4>NXplorer Philippines</h4>
+                            <p>Shell, Manila</p>
+                        </div>
+                        <div class="seminar-year">2020</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Niña Felize Anne Ilagan · nsilaganw@gmail.com · +63 927 825 1915</p>
+        </div>
+    </footer>
+
+</body>
+</html>
