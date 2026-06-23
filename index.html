@@ -362,9 +362,10 @@
             font-weight: 500;
         }
 
-        .media-window {
+.media-window {
             background: #111111;
-            height: 320px;
+            /* Raised from 320px to 400px to allow more of the photo space to display natively */
+            height: 400px; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -372,11 +373,11 @@
             position: relative;
         }
 
-        .media-window img {
+.media-window img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top center;
+            object-position: center bottom; 
         }
 
         .media-window-blur {
@@ -595,7 +596,7 @@
                         <div class="cert-issuer">Issued by the Civil Service Commission</div>
                     </div>
                 </div>
-                <a href="CSECert.jpg" target="_blank" class="btn-outline">View credential</a>
+                <a href="CSECert.png" target="_blank" class="btn-outline">View credential</a>
             </div>
 
             <div class="cert-card">
